@@ -17,3 +17,8 @@ branch = "master"
 hashtype = "sha256"
 hash = "40c83ea0712a001b352de743c6345ab776fb6f0cd6ab2843c210a938241f2929"
 url = "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/5.10.92-v7l%2B.tar.xz"
+
+[contents."5.10.92-v7+"]
+hashtype = "sha256"
+hash = "96202320710792db33c1b5e51436abcee30d40d0f47e9d6c53b647f4ba5035eb"
+url = "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/5.10.92-v7%2B.tar.xz"

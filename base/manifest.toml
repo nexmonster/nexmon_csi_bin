@@ -1,0 +1,19 @@
+[author]
+name = "Aravind Reddy Voggu"
+email = "aravind.reddy@iiitb.org"
+website = "https://www.avoggu.com/"
+
+[nexmon_csi]
+repository = "https://github.com/seemoo-lab/nexmon_csi.git"
+branch = "master"
+
+[nexmon]
+repository = "https://github.com/seemoo-lab/nexmon.git"
+branch = "master"
+
+[[contents]]
+
+[contents."5.10.92-v7l+"]
+hashtype = "sha256"
+hash = "40c83ea0712a001b352de743c6345ab776fb6f0cd6ab2843c210a938241f2929"
+url = "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/5.10.92-v7l%2B.tar.xz"

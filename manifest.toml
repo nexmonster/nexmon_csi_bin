@@ -1,0 +1,9 @@
+[author]
+name = "Aravind Reddy Voggu"
+email = "aravind.reddy@iiitb.org"
+website = "https://www.avoggu.com/"
+
+[[contents]]
+
+[contents."base"]
+url = "https://raw.githubusercontent.com/nexmonster/nexmon_csi_bin/main/base/manifest.toml"

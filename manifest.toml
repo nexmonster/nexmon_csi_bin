@@ -3,7 +3,28 @@ name = "Aravind Reddy Voggu"
 email = "aravind.reddy@iiitb.org"
 website = "https://www.avoggu.com/"
 
-[[contents]]
+[base.contents."5.10.92-v7l+"]
+url = "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/5.10.92-v7l%2B.tar.xz"
 
-[contents."base"]
-url = "https://raw.githubusercontent.com/nexmonster/nexmon_csi_bin/main/base/manifest.toml"
+[base.contents."5.10.92-v7+"]
+url = "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/5.10.92-v7%2B.tar.xz"
+
+[base.nexmon_csi]
+repository = "https://github.com/seemoo-lab/nexmon_csi.git"
+branch = "master"
+
+[base.nexmon]
+repository = "https://github.com/seemoo-lab/nexmon.git"
+branch = "master"
+
+[plus.nexmon_csi]
+repository = "https://github.com/nexmonster/nexmon_csi.git"
+branch = "plus"
+
+[plus.nexmon]
+repository = "https://github.com/seemoo-lab/nexmon.git"
+branch = "master"
+
+[variants]
+base = "Built from 'master' branch of seemoo-lab/nexmon_csi"
+plus = "Built from 'plus' branch of nexmonster/nexmon_csi"

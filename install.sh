@@ -1,8 +1,4 @@
 #!/bin/bash
-
-# Elevate script to root if not root already
-[[ $UID != 0 ]] && exec sudo -E bash "$(readlink -f $0)" "$@"
-
 set -Eeuo pipefail
 shopt -s inherit_errexit
 
@@ -47,6 +43,6 @@ apt install -y tcpdump
 printf "denyinterfaces wlan0\\ninterface wlan0\\n\\tnohook wpa_supplicant\\n" >> /etc/dhcpcd.conf
 killall "wpa_supplicant"
 systemctl disable --now wpa_supplicant
-apt uninstall wpa_supplicant
+apt remove -y wpasupplicant
 
 echo "Done. Please reboot and see the Usage section for Nexmon_csi."

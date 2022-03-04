@@ -25,7 +25,7 @@ For Raspberry Pi 3B+ and 4.
 Run the [install script](install.sh):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nexmonster/nexmon_csi_bin/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/nexmonster/nexmon_csi_bin/main/install.sh | sudo bash
 ```
 
 You have installed Nexmon_CSI. 

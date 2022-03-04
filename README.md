@@ -22,7 +22,7 @@ Get started with CSI collection in **seconds**.
 For Raspberry Pi 3B+ and 4.
 
 ## Install
-Run:
+Run the [install script](install.sh):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/nexmonster/nexmon_csi_bin/main/install.sh | bash

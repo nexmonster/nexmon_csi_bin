@@ -6,7 +6,9 @@
 set -Eeuo pipefail
 shopt -s inherit_errexit
 
-cd "/home/pi/"
+cd "/home/pi/" # best way to ensure this is a Pi lol
+
+mkdir -p "/home/pi/.picsi/bins/" && cd "$_"
 
 # Download and extract binaries
 if ! wget "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/$(uname -r).tar.xz"; then
@@ -15,17 +17,36 @@ if ! wget "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/$(uname -r
     exit
 fi
 
-tar -xvJf "$(uname -r).tar.xz"
+tar -xvJf "$(uname -r).tar.xz" && cd "$(uname -r)"
 
 # install nexutil
-ln -s "/home/pi/$(uname -r)/nexutil/nexutil" "/usr/local/bin/nexutil"
+ln -s "$PWD/nexutil/nexutil" "/usr/local/bin/nexutil"
 
 # install makecsiparams
-ln -s "/home/pi/$(uname -r)/makecsiparams/makecsiparams" "/usr/local/bin/mcp"
-ln -s "/home/pi/$(uname -r)/makecsiparams/makecsiparams" "/usr/local/bin/makecsiparams"
+ln -s "$PWD/makecsiparams/makecsiparams" "/usr/local/bin/mcp"
+ln -s "$PWD/makecsiparams/makecsiparams" "/usr/local/bin/makecsiparams"
 
 # install firmware and driver
-cp "/home/pi/$(uname -r)/patched/brcmfmac43455-sdio.bin" "/lib/firmware/brcm/brcmfmac43455-sdio.bin"
-cp "/home/pi/$(uname -r)/patched/brcmfmac.ko" "$(modinfo brcmfmac -n)"
+cp "$PWD/patched/brcmfmac43455-sdio.bin" "/lib/firmware/brcm/brcmfmac43455-sdio.bin"
+cp "$PWD/patched/brcmfmac.ko" "$(modinfo brcmfmac -n)"
 
 depmod -a
+
+# Unblock wifi
+rfkill unblock all
+
+# Set WiFi country and expand storage
+raspi-config nonint do_wifi_country US || true
+raspi-config nonint do_expand_rootfs || true
+
+# Install tcpdump
+apt update
+apt install -y tcpdump
+
+# disable wpa_supplicant
+printf "denyinterfaces wlan0\\ninterface wlan0\\n\\tnohook wpa_supplicant\\n" >> /etc/dhcpcd.conf
+killall "wpa_supplicant"
+systemctl disable --now wpa_supplicant
+apt uninstall wpa_supplicant
+
+echo "Done. Please reboot and see the Usage section for Nexmon_csi."

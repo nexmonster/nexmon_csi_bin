@@ -38,10 +38,6 @@ in that case.
 
 ## Help
 
-Feel free to [create an Issue](https://github.com/nexmonster/nexmon_csi_bin/issues/new)
-if you find a bug in this program or 
-[create a Discussion]()
-if you need help using it.
+If you need with help with Nexmon_csi, create and Issue or Discussion in the Nexmon_csi repository and tag me ([@zeroby0](https://github.com/zeroby0)).
 
-Please do **not** email me for help. Create an Issue or a Discussion (in the right repo!) instead. You will
-receive help faster than email, and the discussion will be helpful for other users with the same problem.
+If you find a bug in the install script or the binairies, please create an Issue or a Discussion in this repository.

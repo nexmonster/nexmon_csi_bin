@@ -24,4 +24,6 @@ apt update
 apt install -y wpasupplicant
 systemctl enable --now wpa_supplicant
 
-echo "Done. Please delete the $HOME/.picsi folder and reboot."
+rm -rf "/home/pi/.picsi/"
+
+echo "Done. Please reboot."

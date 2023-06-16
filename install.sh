@@ -36,7 +36,7 @@ raspi-config nonint do_wifi_country US || true
 raspi-config nonint do_expand_rootfs || true
 
 # Install tcpdump
-apt update
+apt update -y
 apt install -y tcpdump
 
 # disable wpa_supplicant

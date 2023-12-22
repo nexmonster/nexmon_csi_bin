@@ -6,14 +6,29 @@ cd "/home/pi/" # best way to ensure this is a Pi lol
 
 mkdir -p "/home/pi/.picsi/bins/" && cd "$_"
 
+
+KERNEL_VERSION=$(uname -r)
+
+# Latest Raspi OS uses 64-bit kernel, but 32-bit userland
+# So we install 32-bit binaries and edit /boot/config.txt
+# to use 32-bit kernel. So many hacks.
+if [ "$KERNEL_VERSION" = "6.1.21-v8+" ]; then
+    KERNEL_VERSION="6.1.21-v7l+"
+
+    echo "NOTE: editing /boot/config.txt to use 32-bit kernel."
+
+    # Force load 32-bit kernel. Requires reboot.
+    echo "arm_64bit=0" | sudo tee -a /boot/config.txt > /dev/null
+fi
+
 # Download and extract binaries
-if ! wget "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/$(uname -r).tar.xz"; then
-    echo "Pre-compiled binaries probably don't exist for your kernel's version: $(uname -r)."
-    echo "Please create a new Issue on Github and tell us what kernel you are using."
+if ! wget "https://github.com/nexmonster/nexmon_csi_bin/raw/main/base/$KERNEL_VERSION.tar.xz"; then
+    echo "Pre-compiled binaries probably don't exist for your kernel's version: $KERNEL_VERSION."
+    echo "Please create a new Issue on Github and tell us which kernel you are using."
     exit
 fi
 
-tar -xvJf "$(uname -r).tar.xz" && cd "$(uname -r)"
+tar -xvJf "$KERNEL_VERSION.tar.xz" && cd "$KERNEL_VERSION"
 
 # install nexutil
 ln -s "$PWD/nexutil/nexutil" "/usr/local/bin/nexutil"

@@ -45,6 +45,8 @@ of the kernel. The install script will alert you if they are not
 available. Please [compile nexmon_csi from source](https://github.com/seemoo-lab/nexmon_csi#bcm43455c0)
 in that case.
 
+**Note**: For 64-bit binaries, see https://github.com/nexmonster/nexmon_csi_bin/pull/12 . h/t: [@pH-Valiu](https://github.com/pH-Valiu)
+
 ## Help
 
 If you need with help with Nexmon_csi, create and Issue or Discussion in the Nexmon_csi repository and tag me ([@zeroby0](https://github.com/zeroby0)).

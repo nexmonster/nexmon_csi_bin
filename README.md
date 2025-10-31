@@ -61,8 +61,8 @@ of the kernel. The install script will alert you if they are not
 available. Please [compile nexmon_csi from source](https://github.com/seemoo-lab/nexmon_csi#bcm43455c0)
 in that case.
 
-- Note #2
-[base](base) folder contains a precompiled version for a TRUE 64bit 5.10.92 kernel (without suffixes) as well, but it was never properly tested.
-Use at own risk and test it yourself.
+**Note**: For 64-bit binaries, see https://github.com/nexmonster/nexmon_csi_bin/pull/12 . h/t: [@pH-Valiu](https://github.com/pH-Valiu)
+
+## Help
 
 

@@ -12,6 +12,10 @@ KERNEL_VERSION=$(uname -r)
 # Latest Raspi OS uses 64-bit kernel, but 32-bit userland
 # So we install 32-bit binaries and edit /boot/config.txt
 # to use 32-bit kernel. So many hacks.
+
+# Note of contributor: For 64bit, I did many hacks to get
+# a compiled version of nexmon_csi, if you want some for
+# your specific kernel version, please open an issue.
 if [ "$KERNEL_VERSION" = "6.1.21-v8+" ]; then
     KERNEL_VERSION="6.1.21-v7l+"
 
